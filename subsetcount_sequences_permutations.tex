@@ -1,0 +1,83 @@
+\documentclass{article}
+\title{Subset Count, Sequences, and Permutations}
+\author{Jaken Herman}
+
+\begin{document}
+\maketitle	
+
+\section{A set with $n$ elements that has $2^n$ subsets}
+How man digits does $2^100$ have, where $100 = n$?
+
+$2^3 \leq 8 < 10$
+
+
+$2^{3(33)} < 10^{33}$
+
+
+$2^{100} < 2(10^{33})$ - we know that $10^{33}$ has 34 digits, which gives us our upper bound $K$.
+
+To find our lower bound:
+
+$10^3 < 2^{10} = 1024$
+
+$10^{30} < 2^{100}$, and we know that $10^{30}$ has 31 digits.
+
+$N$ has $K$ digits means:
+
+$10^{K-1} \leq N < 10^K$
+
+$2^{100} = 10^x$
+
+$x = log_{10}2^{100} = 100log_{10}2 \approx 100(.30103) \approx 20.10 = N = 2^{100}$ has exactly 31 digits.
+
+\section{The number of strings of length $n$ composed of $K$ given elements is $K^n$}
+\subsection{Proof: }
+$K$ choices for first symbol. No matter what we choose, we have $K$ choices for second symbol. So, we have $K^2$ for the first two symbols. Continue in same way to prove theorem.
+\subsection{Example}
+A Database has 4 fields: 
+\begin{itemize}
+ \item{Employee Name (8 characters)}
+ \item{Sex (M, F)}
+ \item{Birthday (mm - dd - yy)}
+ \item{Job Code (13 possibilities)}
+\end{itemize}
+How many different records (strings of length 16) can we make in this database?
+
+For employee name, we can have $26^8$ different possibilities. 8 character username, where each letter can be one of any of the 26 letters of the alphabet.
+
+For the sex, there are only $2^1$ possibilities.
+
+For the birthday, we have $12^1$ for the 'mm' portion, $31^1$ for the 'dd' portion (not taking leap years into account), and $100^1$ for the 'yy' portion (starting from 00 - 99).
+
+For the job code, we have $13^1$ possibilities.
+
+Therefore, an approximate number of different records we can create in this database is:
+
+$26^8 \times 2 \times 12 \times 31 \times 100 \times 13 = 2.019 \times 10^{17}$ different records. 
+
+\subsection{Theorem: (Generalized) Product Principle}
+ Suppose we want to form strings of length $n$ by using any of a given set $K_1$ symbols as the first element of the string, $K_2$ symbols as the second, $K_3$ symbols as the third, $K_n$ as last. So, the total number of possible strings is $K_1, K_2, K_3 ... K_n$.
+ \linebreak
+ 
+ So, how many non-negative integers have exactly $n$ digits?
+ 
+ 
+ $9 \times 10^{n-1}$
+ 
+ \section{Permutations}
+ A permutation is an ordered list of $n$ elements. 
+ \subsection{Example}
+How many permutations are in a given set? 
+ 
+$ [ a ]$ - 1 permutation, $a$.
+
+$ [ a , b ]$ - 2 permutations, $ab$ and $ba$.
+
+$ [ a , b , c ]$ - 6 permutations: $abc$, $acb$, $bac$, $bca$, $cab$, and $cba$.
+
+$n \times n-1 \times n-2 \times n-3 ... \times 2 \times 1 = n!$
+
+
+To find the amount of permutations in a given set, just find the factorial of $n$.
+
+\end{document}
